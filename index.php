@@ -12,7 +12,7 @@
         <div>
             <form action="index.php" method="GET">
                 <label for="input">Количество: </label>
-                <input type="text" name="input" placeholder="Введите количество единиц">
+                <input type="number" name="input" placeholder="Введите количество единиц">
                 <label for="dropdown">Единицы измерения: </label>
                 <select name="dropdown">
                     <option disabled selected>Выберите единицы измерения</option>
@@ -43,3 +43,110 @@
     </section>
 </body>
 </html>
+
+<?php
+if (isset($_GET['submit'])) {
+    $inputValue = $_GET['input'];
+    if ($_GET['dropdown'] === 'mkN' && $_GET['outdropdown'] === 'mkN') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue, 3) . ' мкН</h2>';
+    } elseif ($_GET['dropdown'] === 'mkN' && $_GET['outdropdown'] === 'mN') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue / 1000, 3) . ' мН</h2>';
+    } elseif ($_GET['dropdown'] === 'mkN' && $_GET['outdropdown'] === 'N') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue / 1000000, 3) . ' Н</h2>';
+    } elseif ($_GET['dropdown'] === 'mkN' && $_GET['outdropdown'] === 'kN') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue / 1000000000, 3) . ' кН</h2>';
+    } elseif ($_GET['dropdown'] === 'mkN' && $_GET['outdropdown'] === 'MN') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue / 1000000000000, 3) . ' МН</h2>';
+    } elseif ($_GET['dropdown'] === 'mkN' && $_GET['outdropdown'] === 'kgs') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue / 9806650, 3) . ' кгс</h2>';
+    } elseif ($_GET['dropdown'] === 'mkN' && $_GET['outdropdown'] === 'ts') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue / 9806650000, 3) . ' тс</h2>';
+    } elseif ($_GET['dropdown'] === 'mN' && $_GET['outdropdown'] === 'mkN') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue * 1000, 3) . ' мкН</h2>';
+    } elseif ($_GET['dropdown'] === 'mN' && $_GET['outdropdown'] === 'mN') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue, 3) . ' мН</h2>';
+    } elseif ($_GET['dropdown'] === 'mN' && $_GET['outdropdown'] === 'N') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue / 1000, 3) . ' Н</h2>';
+    } elseif ($_GET['dropdown'] === 'mN' && $_GET['outdropdown'] === 'kN') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue / 1000000, 3) . ' кН</h2>';
+    } elseif ($_GET['dropdown'] === 'mN' && $_GET['outdropdown'] === 'MN') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue / 1000000000, 3) . ' МН</h2>';
+    } elseif ($_GET['dropdown'] === 'mN' && $_GET['outdropdown'] === 'kgs') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue / 9806.65, 3) . ' кгс</h2>';
+    } elseif ($_GET['dropdown'] === 'mN' && $_GET['outdropdown'] === 'ts') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue / 9806650, 3) . ' тс</h2>';
+    } elseif ($_GET['dropdown'] === 'N' && $_GET['outdropdown'] === 'mkN') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue * 1000000, 3) . ' мкН</h2>';
+    } elseif ($_GET['dropdown'] === 'N' && $_GET['outdropdown'] === 'mN') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue * 1000, 3) . ' мН</h2>';
+    } elseif ($_GET['dropdown'] === 'N' && $_GET['outdropdown'] === 'N') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue, 3) . ' Н</h2>';
+    } elseif ($_GET['dropdown'] === 'N' && $_GET['outdropdown'] === 'kN') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue / 1000, 3) . ' кН</h2>';
+    } elseif ($_GET['dropdown'] === 'N' && $_GET['outdropdown'] === 'MN') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue / 1000000, 3) . ' МН</h2>';
+    } elseif ($_GET['dropdown'] === 'N' && $_GET['outdropdown'] === 'kgs') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue / 9.80665, 3) . ' кгс</h2>';
+    } elseif ($_GET['dropdown'] === 'N' && $_GET['outdropdown'] === 'ts') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue / 9806.65, 3) . ' тс</h2>';
+    } elseif ($_GET['dropdown'] === 'kN' && $_GET['outdropdown'] === 'mkN') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue * 1000000000, 3) . ' мкН</h2>';
+    } elseif ($_GET['dropdown'] === 'kN' && $_GET['outdropdown'] === 'mN') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue * 1000000, 3) . ' мН</h2>';
+    } elseif ($_GET['dropdown'] === 'kN' && $_GET['outdropdown'] === 'N') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue * 1000, 3) . ' Н</h2>';
+    } elseif ($_GET['dropdown'] === 'kN' && $_GET['outdropdown'] === 'kN') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue, 3) . ' кН</h2>';
+    } elseif ($_GET['dropdown'] === 'kN' && $_GET['outdropdown'] === 'MN') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue / 1000, 3) . ' МН</h2>';
+    } elseif ($_GET['dropdown'] === 'kN' && $_GET['outdropdown'] === 'kgs') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue / 0.00980665, 3) . ' кгс</h2>';
+    } elseif ($_GET['dropdown'] === 'kN' && $_GET['outdropdown'] === 'ts') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue / 9.80665, 3) . ' тс</h2>';
+    } elseif ($_GET['dropdown'] === 'MN' && $_GET['outdropdown'] === 'mkN') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue * 1000000000000, 3) . ' мкН</h2>';
+    } elseif ($_GET['dropdown'] === 'MN' && $_GET['outdropdown'] === 'mN') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue * 1000000000, 3) . ' мН</h2>';
+    } elseif ($_GET['dropdown'] === 'MN' && $_GET['outdropdown'] === 'N') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue * 1000000, 3) . ' Н</h2>';
+    } elseif ($_GET['dropdown'] === 'MN' && $_GET['outdropdown'] === 'kN') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue * 1000, 3) . ' кН</h2>';
+    } elseif ($_GET['dropdown'] === 'MN' && $_GET['outdropdown'] === 'MN') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue, 3) . ' МН</h2>';
+    } elseif ($_GET['dropdown'] === 'MN' && $_GET['outdropdown'] === 'kgs') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue / 0.00000980665, 3) . ' кгс</h2>';
+    } elseif ($_GET['dropdown'] === 'MN' && $_GET['outdropdown'] === 'ts') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue / 0.00980665, 3) . ' тс</h2>';
+    } elseif ($_GET['dropdown'] === 'kgs' && $_GET['outdropdown'] === 'mkN') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue * 9806650, 3) . ' мкН</h2>';
+    } elseif ($_GET['dropdown'] === 'kgs' && $_GET['outdropdown'] === 'mN') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue * 9806.65, 3) . ' мН</h2>';
+    } elseif ($_GET['dropdown'] === 'kgs' && $_GET['outdropdown'] === 'N') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue * 9.80665, 3) . ' Н</h2>';
+    } elseif ($_GET['dropdown'] === 'kgs' && $_GET['outdropdown'] === 'kN') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue * 0.00980665, 3) . ' кН</h2>';
+    } elseif ($_GET['dropdown'] === 'kgs' && $_GET['outdropdown'] === 'MN') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue * 0.00000980665, 3) . ' МН</h2>';
+    } elseif ($_GET['dropdown'] === 'kgs' && $_GET['outdropdown'] === 'kgs') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue, 3) . ' кгс</h2>';
+    } elseif ($_GET['dropdown'] === 'kgs' && $_GET['outdropdown'] === 'ts') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue / 1000, 3) . ' тс</h2>';
+    } elseif ($_GET['dropdown'] === 'ts' && $_GET['outdropdown'] === 'mkN') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue * 9806650000, 3) . ' мкН</h2>';
+    } elseif ($_GET['dropdown'] === 'ts' && $_GET['outdropdown'] === 'mN') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue * 9806650, 3) . ' мН</h2>';
+    } elseif ($_GET['dropdown'] === 'ts' && $_GET['outdropdown'] === 'N') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue * 9806.65, 3) . ' Н</h2>';
+    } elseif ($_GET['dropdown'] === 'ts' && $_GET['outdropdown'] === 'kN') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue * 9.80665, 3) . ' кН</h2>';
+    } elseif ($_GET['dropdown'] === 'ts' && $_GET['outdropdown'] === 'MN') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue * 0.00980665, 3) . ' МН</h2>';
+    } elseif ($_GET['dropdown'] === 'ts' && $_GET['outdropdown'] === 'kgs') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue * 1000, 3) . ' кгс</h2>';
+    } elseif ($_GET['dropdown'] === 'ts' && $_GET['outdropdown'] === 'ts') {
+        echo '<h2>Результат конвертации: ' . number_format($inputValue, 3) . ' тс</h2>';
+    } 
+} else {
+    return $_SERVER['PHP_SELF'];
+}
+?>
